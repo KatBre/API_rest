@@ -40,4 +40,8 @@ public class StudentManager {
     public static List<Student> getAllStudents() {
         return new ArrayList<>(STUDENTS.values());
     }
+
+    public static void delete(Integer studentId) {
+        STUDENTS.remove(studentId);
+    }
 }

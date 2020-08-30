@@ -2,6 +2,7 @@ package http.rest.student.boundary;
 
 import http.rest.student.control.StudentManager;
 import http.rest.student.entity.Student;
+import jdk.net.SocketFlow;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -37,6 +38,13 @@ public class StudentsResource {
 
     }
 
+    @Path("/{id}")
+    @DELETE
+    public Response deleteStudent(@PathParam("id") Integer studentId){
+        StudentManager.delete(studentId);
+
+        return Response.status(Response.Status.NO_CONTENT).build();
+    }
 
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
